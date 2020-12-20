@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+spawn /tmp/installer/xsetup -b AuthTokenGen
+expect "E-mail Address:"
+send -- "$env(XILINX_USERNAME)\r"
+expect "Password:"
+send -- "$env(XILINX_PASSWORD)\r"
+expect eof
